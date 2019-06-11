@@ -4,19 +4,20 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Compte {
-	@Id @GeneratedValue
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String login;
 	private String password;
 	@OneToOne(fetch = FetchType.EAGER)
 	private Membre membre;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	private TypeCompte typeCompte;
 	
 	public Compte() {

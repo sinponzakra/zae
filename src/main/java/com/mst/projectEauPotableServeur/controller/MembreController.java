@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mst.projectEauPotableServeur.Service.MembreService;
+import com.mst.projectEauPotableServeur.entities.Client;
 import com.mst.projectEauPotableServeur.entities.Membre;
 
 @RestController
@@ -42,5 +43,15 @@ public class MembreController {
     @DeleteMapping("/{id}")
     public void deletemembre(@PathVariable int id) {
     	membreService.delete(membreService.findById(id));
+    }
+    
+    @GetMapping(value="/{id}")
+    public Membre findById(@PathVariable int id) {
+    	return membreService.findById(id);
+    }
+    
+    @RequestMapping("/login/{lg}")
+    public Membre findByLogin(@PathVariable String lg) {
+    	return membreService.findByLogin(lg);
     }
 }

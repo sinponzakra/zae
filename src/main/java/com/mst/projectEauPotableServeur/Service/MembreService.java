@@ -43,6 +43,11 @@ public class MembreService implements IDao<Membre>{
 		return membreRepository.findById(id).get();
 	}
 
+	public Membre findByLogin(String login) {
+		// TODO Auto-generated method stub
+		return membreRepository.findByLogin(login);
+	}
+
 	@Override
 	public List<Membre> findAll() {
 		// TODO Auto-generated method stub

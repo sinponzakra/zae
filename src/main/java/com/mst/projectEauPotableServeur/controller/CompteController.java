@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mst.projectEauPotableServeur.Service.CompteService;
+import com.mst.projectEauPotableServeur.entities.Client;
 import com.mst.projectEauPotableServeur.entities.Compte;
 
 @RestController
@@ -42,5 +43,10 @@ public class CompteController {
     @DeleteMapping("/{id}")
     public void deleteCompte(@PathVariable int id) {
     	compteService.delete(compteService.findById(id));
+    }
+    
+    @GetMapping("/{id}")
+    public Compte findById(@PathVariable int id) {
+    	return compteService.findById(id);
     }
 }
